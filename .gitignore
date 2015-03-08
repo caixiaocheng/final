@@ -25,3 +25,5 @@ proguard/
 # Log Files
 *.log
 core/src/com/gyzj/core/adapter/ImgFileListAdapter4.java
+*.java
+core/src/com/gyzj/core/adapter/ImgsAdapter.java
