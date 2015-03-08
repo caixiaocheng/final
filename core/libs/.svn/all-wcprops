@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/gyzj-core/!svn/ver/34/core/libs
+END
+jsoup-1.7.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/gyzj-core/!svn/ver/21/core/libs/jsoup-1.7.3.jar
+END
+gson-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/gyzj-core/!svn/ver/55/core/libs/gson-2.2.2.jar
+END
+httpmime-4.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/gyzj-core/!svn/ver/81/core/libs/httpmime-4.1.2.jar
+END
+jsoup-1.7.3-javadoc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/gyzj-core/!svn/ver/21/core/libs/jsoup-1.7.3-javadoc.jar
+END
+android-async-http-1.4.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/gyzj-core/!svn/ver/88/core/libs/android-async-http-1.4.6.jar
+END
+universal-image-loader-1.8.6-with-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/gyzj-core/!svn/ver/33/core/libs/universal-image-loader-1.8.6-with-sources.jar
+END
+android-support-v4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/gyzj-core/!svn/ver/34/core/libs/android-support-v4.jar
+END
+qiniu-android-sdk-7.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gyzj-core/!svn/ver/88/core/libs/qiniu-android-sdk-7.0.0.jar
+END

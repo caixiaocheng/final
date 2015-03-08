@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_gray"
+    android:orientation="vertical" >
+
+    
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:id="@+id/coverImg"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:adjustViewBounds="false"
+                android:scaleType="fitXY"
+                />
+
+           
+        </LinearLayout>
+  
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+             android:textColor="#666666"
+            android:text="2014年06月"
+            android:id="@+id/pro_detail_starttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+           android:textColor="#666666"
+            android:text="香溢澜桥"
+            android:layout_marginLeft="3dp"
+            android:id="@+id/pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_stars" />
+
+        
+    </LinearLayout>
+
+</LinearLayout>

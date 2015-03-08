@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center"
+	android:orientation="vertical" >
+
+	<Button
+		android:id="@+id/bt_setting_pic"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/login_margin_lr"
+		android:layout_marginRight="@dimen/login_margin_lr"
+		android:text="拍照" />
+
+	<Button
+		android:id="@+id/bt_setting_selectpic"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/login_margin_lr"
+		android:layout_marginRight="@dimen/login_margin_lr"
+		android:layout_marginTop="10dp"
+		android:text="从手机相册选择" />
+
+	<Button
+		android:id="@+id/bt_setting_cancel"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/login_margin_lr"
+		android:layout_marginRight="@dimen/login_margin_lr"
+		android:layout_marginTop="10dp"
+		android:text="取消" />
+
+</LinearLayout>

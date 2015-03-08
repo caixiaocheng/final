@@ -1,0 +1,115 @@
+package com.gyzj.core.ui.fragment;
+
+import com.example.core.R;
+import com.gyzj.core.ui.activity.WorkerProjectCenterActivity;
+import com.gyzj.core.util.PersistentUtil;
+import com.gyzj.core.util.activity.BaseActivityUtil;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+public class MainGuidIndividualFragment extends Fragment {
+	private View view; // ·µ»Ø½çÃæ
+	private TextView tv_wokerName;
+	private TextView tv_workerLevel;
+	private TextView tv_wokerRemain;
+	private RadioButton button_projecting, button_projected;
+	private FragmentManager frg_manager;
+	private FragmentTransaction frg_transaction;
+	private Fragment currentFragment = new Fragment();
+	Fragment projectedFrag, projectingFrag;    //Ç¶Ì×fragment
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		
+	}
+    
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		
+		view = inflater.inflate(R.layout.service_individual_fragment,
+				container, false);
+		tv_wokerName = (TextView) view.findViewById(R.id.name);
+		// tv_wokerRemain = (TextView) view.findViewById(R.id.remain);
+
+		button_projected = (RadioButton) view.findViewById(R.id.user_projected);
+		button_projected.setChecked(true);
+		button_projected.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// BaseActivityUtil.startActivity(getActivity(),
+				// WorkerCountCenterActivity.class, false);
+				if (currentFragment == projectedFrag)
+					return;
+				projectedFrag = new IndividualProjectedFragment();
+				currentFragment = projectedFrag;
+				frg_transaction = frg_manager.beginTransaction();
+				frg_transaction.replace(R.id.project_fragment, projectedFrag);
+				frg_transaction.commit();
+			}
+		});
+		button_projecting = (RadioButton) view
+				.findViewById(R.id.user_projecting);
+		button_projecting.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				// BaseActivityUtil.startActivity(getActivity(),
+				// WorkerProjectCenterActivity.class, false);
+
+				if (currentFragment == projectingFrag)
+					return;
+				projectingFrag = new IndividualProjectingFragment();
+				currentFragment = projectingFrag;
+
+				frg_transaction = frg_manager.beginTransaction();
+				frg_transaction.replace(R.id.project_fragment, projectingFrag);
+				frg_transaction.commit();
+			}
+		});
+		String remain = PersistentUtil.getInstance().readString(getActivity(),
+				"remaining", "12");
+		String name = PersistentUtil.getInstance().readString(getActivity(),
+				"userName", "hehe");
+		String level = PersistentUtil.getInstance().readString(getActivity(),
+				"level", "hehe");
+		tv_wokerName.setText(name);
+
+		// tv_wokerRemain.setText(remain);
+		frg_manager = getChildFragmentManager();
+
+		return view;
+
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onViewCreated(view, savedInstanceState);
+		frg_transaction = frg_manager.beginTransaction();
+		projectedFrag = new IndividualProjectedFragment();
+		currentFragment = projectedFrag;
+		frg_transaction.replace(R.id.project_fragment, projectedFrag);
+		frg_transaction.commit();
+	}
+	private void initView(){
+		
+	}
+
+}

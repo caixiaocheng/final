@@ -1,0 +1,276 @@
+package com.gyzj.core.ui.activity;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.example.core.R;
+import com.gyzj.core.bean.ProjectBean;
+import com.gyzj.core.enable.http.HttpHandle;
+import com.gyzj.core.util.Constant;
+import com.gyzj.core.util.DialogUtil;
+import com.gyzj.core.util.Keys;
+import com.gyzj.core.util.PersistentUtil;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestHandle;
+import com.loopj.android.http.RequestParams;
+
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+public class WorkerCountCenterActivity extends Activity {
+	private TextView tv_wokerName;
+	private TextView tv_workerLevel;
+	private TextView tv_wokerRemain;
+	private TextView tv_projectName, tv_projectPlace, tv_projectPay,
+			tv_projectTime;
+	private RequestHandle reqhandle;
+	private AsyncHttpClient ahc;
+	private Dialog dialog;
+	private RadioButton btn_starTime, btn_endTime;
+	private List<ProjectBean> list = new ArrayList<ProjectBean>();
+	
+	
+	
+	private static final int SHOW_DATAPICK = 0;
+	private static final int DATE_DIALOG_ID = 1;
+	private static final int SHOW_TIMEPICK = 2;
+	private static final int TIME_DIALOG_ID = 3;
+	private int mYear;
+	private int mMonth;
+	private int mDay;
+	
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.count_center_activity);
+		tv_wokerName = (TextView) findViewById(R.id.name);
+		tv_wokerRemain = (TextView) findViewById(R.id.remain);
+		tv_workerLevel = (TextView) findViewById(R.id.level);
+
+		tv_projectName = (TextView) findViewById(R.id.project_name);
+		tv_projectPay = (TextView) findViewById(R.id.project_payable);
+		tv_projectPlace = (TextView) findViewById(R.id.project_place);
+		tv_projectTime = (TextView) findViewById(R.id.project_paytime);
+
+		btn_starTime = (RadioButton) findViewById(R.id.starttime);
+		btn_starTime.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Message msg = new Message();
+				
+					msg.what = WorkerCountCenterActivity.SHOW_DATAPICK;
+				
+				WorkerCountCenterActivity.this.dateandtimeHandler.sendMessage(msg);
+			}
+		});
+		btn_endTime = (RadioButton) findViewById(R.id.endtime);
+		btn_endTime.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Message msg = new Message();
+				
+					msg.what = WorkerCountCenterActivity.SHOW_DATAPICK;
+			
+				WorkerCountCenterActivity.this.dateandtimeHandler.sendMessage(msg);
+			}
+		});
+
+		String remain = PersistentUtil.getInstance().readString(this,
+				"remaining", "12");
+		String name = PersistentUtil.getInstance().readString(this, "userName",
+				"hehe");
+		String level = PersistentUtil.getInstance().readString(this, "level",
+				"hehe");
+		tv_wokerName.setText(name);
+
+		tv_wokerRemain.setText(remain);
+		tv_workerLevel.setText(level);
+		dialog = DialogUtil.getLoadDialog(this, "亲，请稍后！");
+		ahc = new AsyncHttpClient();
+		getData();
+	}
+
+	private void initDatas() {
+		View view = null;
+		LinearLayout line = (LinearLayout) findViewById(R.id.project_list);
+		for (int i = 0; i < list.size(); i++) {
+			view = getLayoutInflater()
+					.inflate(R.layout.project_list_itme, null);
+			TextView tv_name = (TextView) view.findViewById(R.id.project_name);
+			TextView tv_place = (TextView) view
+					.findViewById(R.id.project_place);
+			TextView tv_pay = (TextView) view
+					.findViewById(R.id.project_payable);
+			TextView tv_time = (TextView) view
+					.findViewById(R.id.project_paytime);
+			tv_name.setText("项目名称："+list.get(i).getProjectName());
+			tv_place.setText("项目地点："+list.get(i).getPlace());
+			tv_time.setText("项目时间："+list.get(i).getStartTime());
+			tv_pay.setText("项目金额："+list.get(i).getPayable());
+			line.addView(view);
+		}
+
+	}
+
+	private void getData() {
+
+		RequestParams rp = new RequestParams();
+        String userId = PersistentUtil.getInstance().readString(this, Keys.KEY_USERID, "5");
+		rp.put(Keys.KEY_METHOD, "proAccountInfo");
+		rp.put(Keys.KEY_TYPE, "1");
+		rp.put(Keys.KEY_USERID,userId);
+
+		reqhandle = ahc.post(this, Constant.HTTP_REQ_URL_PREFIX, rp,
+				new JsonHttpResponseHandler(Constant.UNICODE) {
+					@Override
+					public void onStart() {
+						// TODO Auto-generated method stub
+						super.onStart();
+						dialog.show();
+					}
+
+					@Override
+					public void onSuccess(int statusCode, Header[] headers,
+							JSONObject response) {
+						super.onSuccess(statusCode, headers, response);
+
+						try {
+							JSONArray array = response.getJSONArray("list");
+
+							for (int i = 0; i < array.length(); i++) {
+								JSONObject project = array.getJSONObject(i);
+								ProjectBean pro = new ProjectBean();
+								pro.setProjectName(project
+										.getString("projectName"));
+								pro.setPlace(project.getString("place"));
+								pro.setPayable(project.getString("payable"));
+								pro.setStartTime(project.getString("payTime"));
+								list.add(pro);
+							}
+
+							initDatas();
+							dialog.dismiss();
+						} catch (JSONException e) {
+
+							e.printStackTrace();
+						}
+
+					}
+
+					@Override
+					public void onFailure(int arg0, Header[] arg1, String arg2,
+							Throwable throwable) {
+						super.onFailure(arg0, arg1, arg2, throwable);
+						HttpHandle hh = new HttpHandle();
+						hh.handleFaile(WorkerCountCenterActivity.this,
+								throwable);
+						if (dialog.isShowing()) {
+							dialog.dismiss();
+						}
+					}
+
+				});
+
+	}
+	
+	
+	
+	
+	
+	
+	/** * 设置日期 */
+	private void setDateTime() {
+		final Calendar c = Calendar.getInstance();
+		mYear = c.get(Calendar.YEAR);
+		mMonth = c.get(Calendar.MONTH);
+		mDay = c.get(Calendar.DAY_OF_MONTH);
+		updateDateDisplay();
+	}
+
+	/** * 更新日期显示 */
+	private void updateDateDisplay() {
+		/*showDate.setText(new StringBuilder().append(mYear).append("-")
+				.append((mMonth + 1) < 10 ? "0" + (mMonth + 1) : (mMonth + 1))
+				.append("-").append((mDay < 10) ? "0" + mDay : mDay));*/
+	}
+
+	/** * 日期控件的事件 */
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			mYear = year;
+			mMonth = monthOfYear;
+			mDay = dayOfMonth;
+			updateDateDisplay();
+		}
+	};
+
+	
+
+	
+
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog(this, mDateSetListener, mYear, mMonth,
+					mDay);
+		
+		}
+		return null;
+	}
+
+	@Override
+	protected void onPrepareDialog(int id, Dialog dialog) {
+		switch (id) {
+		case DATE_DIALOG_ID:
+			((DatePickerDialog) dialog).updateDate(mYear, mMonth, mDay);
+			break;
+		
+		}
+	}
+
+	/** * 处理日期和时间控件的Handler */
+	Handler dateandtimeHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case WorkerCountCenterActivity.SHOW_DATAPICK:
+				showDialog(DATE_DIALOG_ID);
+				break;
+			
+			}
+		}
+	};
+	
+	
+	
+	
+	
+
+}

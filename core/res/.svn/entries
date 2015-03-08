@@ -1,0 +1,70 @@
+10
+
+dir
+39
+http://122.226.44.11:90/svn/gyzj-core/core/res
+http://122.226.44.11:90/svn/gyzj-core
+
+
+
+2014-10-17T01:48:48.263473Z
+35
+chengcai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d5499fcb-6da4-4891-a180-efeedd6fca72
+
+values
+dir
+
+values-sw720dp-land
+dir
+
+values-sw600dp
+dir
+
+drawable
+dir
+
+drawable-hdpi
+dir
+
+drawable-xxhdpi
+dir
+
+anim
+dir
+
+menu
+dir
+
+values-v11
+dir
+
+drawable-ldpi
+dir
+
+values-v14
+dir
+
+drawable-mdpi
+dir
+
+drawable-xhdpi
+dir
+
+layout
+dir
+

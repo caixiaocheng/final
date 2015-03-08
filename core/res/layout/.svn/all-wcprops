@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/gyzj-core/!svn/ver/35/core/res/layout
+END
+user_project_center_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gyzj-core/!svn/ver/78/core/res/layout/user_project_center_activity.xml
+END
+service_classify_fragment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gyzj-core/!svn/ver/71/core/res/layout/service_classify_fragment.xml
+END
+worker_list_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gyzj-core/!svn/ver/78/core/res/layout/worker_list_activity.xml
+END
+server_classify_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gyzj-core/!svn/ver/78/core/res/layout/server_classify_item.xml
+END
+project_show_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gyzj-core/!svn/ver/78/core/res/layout/project_show_activity.xml
+END
+projecting_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/gyzj-core/!svn/ver/78/core/res/layout/projecting_item.xml
+END
+login_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gyzj-core/!svn/ver/78/core/res/layout/login_activity.xml
+END
+upload_project_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gyzj-core/!svn/ver/86/core/res/layout/upload_project_activity.xml
+END
+service_individual_fragment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gyzj-core/!svn/ver/78/core/res/layout/service_individual_fragment.xml
+END
+individual_project_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gyzj-core/!svn/ver/78/core/res/layout/individual_project_item.xml
+END
+server_classify_dialog_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/gyzj-core/!svn/ver/78/core/res/layout/server_classify_dialog_activity.xml
+END
+activity_main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/gyzj-core/!svn/ver/71/core/res/layout/activity_main.xml
+END
+pull_to_refresh_header.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gyzj-core/!svn/ver/71/core/res/layout/pull_to_refresh_header.xml
+END
+project_detail_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gyzj-core/!svn/ver/54/core/res/layout/project_detail_activity.xml
+END
+worker_detail_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gyzj-core/!svn/ver/78/core/res/layout/worker_detail_activity.xml
+END
+dialog_comm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gyzj-core/!svn/ver/3/core/res/layout/dialog_comm.xml
+END
+register_info_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gyzj-core/!svn/ver/78/core/res/layout/register_info_activity.xml
+END
+individual_center_fragment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/gyzj-core/!svn/ver/78/core/res/layout/individual_center_fragment.xml
+END
+refresh_footer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gyzj-core/!svn/ver/71/core/res/layout/refresh_footer.xml
+END
+user_projecting_center_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/gyzj-core/!svn/ver/78/core/res/layout/user_projecting_center_activity.xml
+END
+project_list_itme.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gyzj-core/!svn/ver/54/core/res/layout/project_list_itme.xml
+END
+title.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/gyzj-core/!svn/ver/71/core/res/layout/title.xml
+END
+worker_list_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/gyzj-core/!svn/ver/78/core/res/layout/worker_list_item.xml
+END
+user_project_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gyzj-core/!svn/ver/78/core/res/layout/user_project_item.xml
+END
+project_show_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gyzj-core/!svn/ver/78/core/res/layout/project_show_item.xml
+END
+listview_footer.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/gyzj-core/!svn/ver/71/core/res/layout/listview_footer.xml
+END
+night_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gyzj-core/!svn/ver/71/core/res/layout/night_item.xml
+END
+service_contact_fragment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/gyzj-core/!svn/ver/20/core/res/layout/service_contact_fragment.xml
+END
+progresslayout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/gyzj-core/!svn/ver/3/core/res/layout/progresslayout.xml
+END
+count_center_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gyzj-core/!svn/ver/50/core/res/layout/count_center_activity.xml
+END
+refresh_header.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gyzj-core/!svn/ver/71/core/res/layout/refresh_header.xml
+END
+contact_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/gyzj-core/!svn/ver/86/core/res/layout/contact_activity.xml
+END
+project_items.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/gyzj-core/!svn/ver/54/core/res/layout/project_items.xml
+END
+main_guid_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/gyzj-core/!svn/ver/78/core/res/layout/main_guid_activity.xml
+END
+service_location_fragment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gyzj-core/!svn/ver/86/core/res/layout/service_location_fragment.xml
+END
+broad_cast_activity.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/gyzj-core/!svn/ver/78/core/res/layout/broad_cast_activity.xml
+END

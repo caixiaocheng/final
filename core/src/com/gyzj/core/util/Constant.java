@@ -1,0 +1,48 @@
+package com.gyzj.core.util;
+
+/**
+ * 常量类
+ * 
+ * @author  程才
+ * @date  2014-10-10
+ * @see  [相关类/方法]
+ */
+public final class Constant
+{
+    private Constant()
+    {
+        
+    }
+    
+    /**
+     * 统一请求前缀
+     */
+    //正式地址
+    public static final String HTTP_REQ_URL_PREFIX = "http://192.168.1.101:8080/gyzj-web/android.html";
+   
+//   public static final String HTTP_TEST = "http://192.168.2.59:7000/Ashx/App.ashx";
+    //测试服务器地址
+//    public static final String HTTP_REQ_URL_PREFIX = "http://122.224.171.197:8081/SuperCode2.0/Ashx/App.ashx";
+    
+    
+    /**
+     * 统一图片前缀 测试地址
+     */
+     public static final String HTTP_REQ_PICTURE_PREFIX = "http://img-gyzj.qiniudn.com/";
+    //  public static final String HTTP_REQ_WAP_PREFIX = "http://appwap.app315.net/";
+    /**
+     * 请求编码
+     */
+    public static final String UNICODE = "UTF8";
+    
+    /**
+     * 日期格式
+     */
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+    
+    /**
+     * 微信分享ID
+     */
+    public static final String WX_APP_ID = "wx23b69d75b3d5ffe2";
+    
+}

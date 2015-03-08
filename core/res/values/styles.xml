@@ -1,0 +1,147 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+	<!-- Application theme. -->
+	<style name="AppTheme" parent="AppBaseTheme">
+		<!-- All customizations that are NOT specific to a particular API-level can go here. -->
+	</style>
+
+	<!-- =================================字体================================= -->
+	<!-- 基线文字样式:17sp 黑色 -->
+	<style name="base_font">
+		<item name="android:textSize">@dimen/font_size_baseline</item>
+		<item name="android:textColor">@android:color/black</item>
+	</style>
+
+	<!-- 基线字样式:17sp 灰色 -->
+	<style name="base_font_gray">
+		<item name="android:textSize">@dimen/font_size_baseline</item>
+		<item name="android:textColor">@color/gray_text</item>
+	</style>
+
+	<!-- 导航字体 -->
+	<style name="nav_font">
+		<item name="android:textSize">@dimen/font_size_com</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<!-- label字体 -->
+	<style name="label_font">
+		<item name="android:textSize">@dimen/font_size_com</item>
+		<item name="android:gravity">center|right</item>
+		<item name="android:textColor">@android:color/black</item>
+		<item name="android:paddingRight">5dp</item>
+	</style>
+
+	<style name="total_title">
+		<item name="android:gravity">center|right</item>
+		<item name="android:textColor">@android:color/black</item>
+		<item name="android:textSize">22sp</item>
+	</style>
+
+	<style name="total_data">
+		<item name="android:textColor">@color/red</item>
+		<item name="android:textSize">@dimen/font_size_com</item>
+		<item name="android:singleLine">true</item>
+	</style>
+
+	<!-- 产品字段 -->
+	<style name="text_gray_sencondsize">
+		<item name="android:textSize">@dimen/font_size_com_second</item>
+		<item name="android:textColor">@android:color/darker_gray</item>
+		<item name="android:gravity">center_vertical</item>
+	</style>
+
+	
+
+	<!-- =================================文本框================================= -->
+	<!-- 基线输入框样式 -->
+	<style name="base_edit">
+		<item name="android:textSize">@dimen/font_size_baseline</item>
+		<item name="android:textColor">@color/gray_text</item>
+		<item name="android:background">@android:color/transparent</item>
+	</style>
+
+	<!-- 基线输入框样式 有距离 -->
+	<style name="base_edit_margin10">
+		<item name="android:textSize">@dimen/font_size_baseline</item>
+		<item name="android:textColor">@color/gray_text</item>
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:layout_marginRight">@dimen/base_margin_leftright</item>
+		<item name="android:layout_marginLeft">@dimen/base_margin_leftright</item>
+		<item name="android:padding">10dp</item>
+	</style>
+
+	<!-- 输入框基本样式 -->
+	<style name="input_singlelint_base">
+		<item name="android:singleLine">true</item>
+	</style>
+
+
+
+	<!-- =================================控件================================= -->
+	<!-- 基线item样式 -->
+	<style name="base_item">
+		<item name="android:background">@drawable/border_line_gray</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:paddingLeft">10dp</item>
+		<item name="android:paddingRight">10dp</item>
+		<item name="android:layout_marginRight">10dp</item>
+		<item name="android:layout_marginLeft">10dp</item>
+		<item name="android:layout_height">@dimen/base_item_height</item>
+		<item name="android:layout_width">match_parent</item>
+	</style>
+
+	<style name="base_item_second" parent="base_item">
+		<item name="android:background">@drawable/border_line_notop_gray</item>
+	</style>
+
+	<!-- Home按钮 -->
+	<style name="home_item_text">
+		<item name="android:gravity">center</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="dialog" parent="@android:style/Theme.Dialog">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@color/bg_half_tran</item>
+		<item name="android:windowFrame">@null</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowIsFloating">false</item>
+	</style>
+
+	
+	<style name="good_input" parent="base_font_gray">
+		<item name="android:layout_marginLeft">@dimen/base_margin_leftright</item>
+		<item name="android:background">@android:color/transparent</item>
+		<item name="android:inputType">text</item>
+		<item name="android:singleLine">true</item>
+	</style>
+
+	<style name="good_input_tablecell">
+		<item name="android:paddingLeft">20dp</item>
+		<item name="android:paddingRight">20dp</item>
+		<item name="android:gravity">center_vertical</item>
+	</style>
+	
+	
+	  <style name="customProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:layout_width">21dip</item>
+        <item name="android:layout_height">21dip</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
+	  <style name="thumb_add">
+		<item name="android:layout_marginBottom">20dp</item>
+		<item name="android:layout_marginLeft">20dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:background">#ffffff</item>
+		<item name="android:padding">15dp</item>
+		<item name="android:src">@drawable/bigadd</item>
+	</style>
+	
+
+</resources>

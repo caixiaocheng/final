@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <!-- logo -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/login_margin_lr"
+        android:layout_marginRight="@dimen/login_margin_lr"
+        android:layout_marginTop="50dp"
+        android:layout_weight="2"
+        android:orientation="vertical" >
+
+        <com.gyzj.core.widget.DeleteEditText
+            android:id="@+id/et_reg_phone"
+            style="@style/base_item"
+            android:layout_width="match_parent"
+            android:layout_margin="0dp"
+            android:background="@drawable/border_line_topcorner_gray"
+            android:drawablePadding="5dp"
+            android:hint="手机号码"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <com.gyzj.core.widget.DeleteEditText
+                android:id="@+id/et_reg_yanzhengma"
+                style="@style/base_item"
+                android:layout_width="0dp"
+                android:layout_margin="0dp"
+                android:layout_weight="2"
+                android:background="@drawable/border_line_topcorner_gray"
+                android:hint="验证码"
+                android:maxLength="18"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_reg_gain_yanzhengma"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/base_item_height"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_red"
+                android:text="获取验证码"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <com.gyzj.core.widget.DeleteEditText
+              android:id="@+id/et_reg_password"
+           android:layout_height="@dimen/base_item_height"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_line_topcorner_gray"
+            android:drawablePadding="5dp"
+            android:hint="登录密码"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/bt_reg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_red"
+            android:text="注册"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_size_com" />
+    </LinearLayout>
+
+</LinearLayout>

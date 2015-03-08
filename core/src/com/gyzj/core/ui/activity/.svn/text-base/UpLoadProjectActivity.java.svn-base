@@ -1,0 +1,181 @@
+package com.gyzj.core.ui.activity;
+
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import junit.framework.Assert;
+
+import org.apache.http.Header;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.example.core.R;
+import com.gyzj.core.bean.ProjectBean;
+import com.gyzj.core.enable.http.HttpHandle;
+import com.gyzj.core.util.Constant;
+import com.gyzj.core.util.Keys;
+import com.gyzj.core.util.ToastUtil;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.qiniu.android.http.CompletionHandler;
+import com.qiniu.android.http.HttpManager;
+import com.qiniu.android.http.ResponseInfo;
+import com.qiniu.android.storage.UpCompletionHandler;
+import com.qiniu.android.storage.UploadManager;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class UpLoadProjectActivity extends Activity {
+	private TextView tv_name, tv_time;
+	String pro_name, pro_time,detail,pro_id;
+	private EditText et_detial;
+	private Button btn_confirm;
+	private AsyncHttpClient ahc;
+	
+	
+	
+	final CountDownLatch signal = new CountDownLatch(1);
+    private HttpManager httpManager;
+    private ResponseInfo info;
+    private JSONObject resp;
+
+    protected void setUp() throws Exception {
+        httpManager = new HttpManager();
+    }
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.upload_project_activity);
+		btn_confirm = (Button) findViewById(R.id.btn_confirm);
+		tv_name = (TextView) findViewById(R.id.up_pro_name);
+		tv_time = (TextView) findViewById(R.id.up_pro_time);
+		pro_name = getIntent().getStringExtra("pro_name");
+		pro_time = getIntent().getStringExtra("pro_time");
+		pro_id = getIntent().getStringExtra("pro_id");
+		String timeStr = pro_time;
+		
+		
+		
+		
+		
+		
+		if(timeStr!=null){
+			
+			SimpleDateFormat format = new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ss");
+			Date date;
+			try {
+				date = format.parse(timeStr);
+				int nian = date.getYear();
+				int yue_temp = date.getMonth() + 1;
+				int yue = yue_temp > 12 ? 1 : yue_temp;
+				int ri = date.getDay();
+				int shi = date.getHours();
+				int fen = date.getMinutes();
+				tv_time.setText(nian + 1900 + "年" + yue + "月" + ri
+						+ "日");
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		et_detial = (EditText) findViewById(R.id.pro_detial);
+		detail = et_detial.getText().toString().trim();
+		if (pro_name != null && pro_time != null) {
+			tv_name.setText(pro_name);
+		}
+		btn_confirm.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				/*if(TextUtils.isEmpty(detail)){
+					ToastUtil.toastshort(UpLoadProjectActivity.this,"请输入项目信息");
+					return;
+				}*/
+				getData();
+			}
+		});
+		//ahc = new AsyncHttpClient();
+
+	}
+
+	private void getData() {
+/*
+		RequestParams rp = new RequestParams();
+
+		rp.put(Keys.KEY_METHOD, "modifyProject");
+		rp.put("projectId","9");
+		rp.put("mark", "ajfopwjeaop");
+		rp.put("status", "A");
+		rp.put("projectImg", "A");*/
+		
+				
+				String token = "lA0uIYdaHIvzdji6CvMLXM3GGs-eDZSp8I56bbqd:vhd_dCkqeAob7Ztw5ec1fIaA55M=:eyJzY29wZSI6ImltZy1neXpqIiwiZGVhZGxpbmUiOjE0MTQ2MDI2NTd9";
+				UploadManager uploadManager = new UploadManager();
+				File file =new File("/storage/sdcard1/DCIM/Camera/IMG_20141029_162649.jpg");
+				boolean boo = file.exists();
+				uploadManager.put(file, null, token,new UpCompletionHandler() {
+			        @Override
+			        public void complete(String key, ResponseInfo info, JSONObject response) {
+			           // Log.i("qiniu", info);
+						   ToastUtil.toastshort(UpLoadProjectActivity.this, "提交失败");
+
+			        }
+			    },  null);
+				
+				
+			
+				
+			}
+		
+		
+		
+
+		 /*
+		ahc.post(UpLoadProjectActivity.this, Constant.HTTP_REQ_URL_PREFIX, rp,
+				new JsonHttpResponseHandler(Constant.UNICODE) {
+					@Override
+					public void onStart() {
+						// TODO Auto-generated method stub
+						super.onStart();
+
+					}
+
+					@Override
+					public void onSuccess(int statusCode, Header[] headers,
+							JSONObject response) {
+						super.onSuccess(statusCode, headers, response);
+                            finish();
+							overridePendingTransition(R.anim.push_right_in,
+									R.anim.push_right_out);
+					} 
+
+					@Override
+					public void onFailure(int arg0, Header[] arg1, String arg2,
+							Throwable throwable) {
+						super.onFailure(arg0, arg1, arg2, throwable);
+						//HttpHandle hh = new HttpHandle();
+						//hh.handleFaile(UpLoadProjectActivity.this, throwable);
+					   ToastUtil.toastshort(UpLoadProjectActivity.this, "提交失败");
+
+					}
+
+				});
+			*/
+	
+}
